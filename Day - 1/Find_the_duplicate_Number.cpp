@@ -15,7 +15,7 @@ public:
     }
 };
 
-//T.C -: O(N), S.C -: O(1) Negative Marking Approach
+//T.C -: O(N), S.C -: O(1) But  Modified the array. Negative Marking Approach.
 //Marked each of the values of nums and if an upcoming value is already -ve that
 //means it was already marked by some earlier values that means current value is 
 //duplicate. 
@@ -36,5 +36,25 @@ public:
             
         }
         return ans;
+    }
+};
+
+//T.C -: O(N), S.C -: O(1) Not Modified Array Floydd Warshal Algo (Slow fast pointer approach Cycle in a Linked list)
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = nums[0];
+        int fast = nums[0];
+        
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while(slow!=fast);
+        slow = nums[0];
+        while(slow!=fast)
+        {slow=nums[slow]; fast = nums[fast];
+        }
+        return slow;
     }
 };
