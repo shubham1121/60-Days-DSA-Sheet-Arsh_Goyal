@@ -1,4 +1,4 @@
-// T.C-: O(N) & S.C -: O(N)
+// T.C-: O(N*N) & S.C -: O(N)
 class Solution{
 public:
     //Function that constructs BST from its preorder traversal.
